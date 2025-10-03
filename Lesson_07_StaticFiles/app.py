@@ -11,13 +11,12 @@ def hello():
 
 @app.route("/feedback", methods=["GET", 'POST'])
 def feedback():
-    if request.method == "POST":
-        name = request.form.get("name")
+    if request.method == 'POST':
+        name = request.form.get('name')
         rating = request.form.get('rating')
-
-
-        return render_template("form.html", name=name, rating=rating)
-    return render_template("form.html")
+        return render_template('form.html', name=name, rating=rating)
+    # if request.method == 'GET':
+    return render_template('form.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port="5050")
